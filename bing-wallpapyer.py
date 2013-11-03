@@ -7,10 +7,10 @@ import os
 
 #Variables:
 idx = '10' #defines the day of the picture: 0 = today, 1 = yesterday, ... 20.
-bing = 'http://www.bing.com'
 saveDir = '/media/HDD/ProgrammingStuff/Python/BingWallpaper/' #in Windows put 2 \\ at the end
 operatingSystem = 'linux' # windows and linux (gnome)
 
+bing = 'http://www.bing.com'
 
 
 
@@ -18,11 +18,11 @@ operatingSystem = 'linux' # windows and linux (gnome)
 def setWindowsWallpaper(picPath):
 	cmd = 'REG ADD \"HKCU\Control Panel\Desktop\" /v Wallpaper /t REG_SZ /d \"%s\" /f' % (picPath)
 	os.system(cmd)
-	os.system("rundll32.exe user32.dll, UpdatePerUserSystemParameters")
+	os.system('rundll32.exe user32.dll, UpdatePerUserSystemParameters')
 	return
 	
 def setGnomeWallpaper(picPath):
-	os.system("gsettings set org.gnome.desktop.background picture-uri file://"+picPath)
+	os.system('gsettings set org.gnome.desktop.background picture-uri file://'+picPath)
 	
 	return
 
