@@ -9,4 +9,8 @@ By testing it in Win7 I experienced a reset of the wallpaper after rebooting.
 
 This isn't really finished, (especially regarding compatibility) but maybe this already is useful for someone.
 
+HowTo Use:
+Just take a look at the 2-3 variables at the beginning of the script and change them to your needs. 
+The Script will download the daily pictures, so a extra directory for it is recommended.
+
 If you have any questions or ideas how to improve this, tell me! ;-)
