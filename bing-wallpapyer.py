@@ -1,5 +1,5 @@
 ﻿#! /usr/bin/python3
-﻿# Author: Marguerite Su <i@marguerite.su> 
+﻿# Author: Maximilian Muth <mail@maxi-muth.de>
 ﻿# Version: 1.0 
 ﻿# License: GPL-3.0 
 ﻿# Description: Download the Bing Picture of the Day and set it as (Linux / Windows) wallpaper.
