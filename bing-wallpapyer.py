@@ -1,4 +1,9 @@
 ﻿#! /usr/bin/python3
+﻿# Author: Marguerite Su <i@marguerite.su> 
+﻿# Version: 1.0 
+﻿# License: GPL-3.0 
+﻿# Description: Download the Bing Picture of the Day and set it as (Linux / Windows) wallpaper.
+﻿
 import datetime
 from urllib.request import urlopen, urlretrieve
 from xml.dom import minidom
