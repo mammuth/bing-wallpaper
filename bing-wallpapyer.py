@@ -41,6 +41,7 @@ for element in xmldoc.getElementsByTagName('url'):
 	picPath = saveDir+now.strftime('bing_wp_%d-%m-%Y')+'.jpg'
 	
 	#Download and Save the Picture
+	#Get a higher resolution by replacing the image name
 	urlretrieve (url.replace('_1366x768', '_1920x1200'), picPath)
 	
 	#Set Wallpaper:
