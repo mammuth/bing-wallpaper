@@ -11,7 +11,7 @@ import os
 
 
 #Variables:
-idx = '10' #defines the day of the picture: 0 = today, 1 = yesterday, ... 20.
+idx = '0' #defines the day of the picture: 0 = today, 1 = yesterday, ... 20.
 saveDir = '/media/HDD/ProgrammingStuff/Python/BingWallpaper/' #in Windows put 2 \\ at the end
 operatingSystem = 'linux' # windows and linux (gnome)
 
@@ -28,9 +28,7 @@ def setWindowsWallpaper(picPath):
 	
 def setGnomeWallpaper(picPath):
 	os.system('gsettings set org.gnome.desktop.background picture-uri file://'+picPath)
-	
 	return
-
 
 
 #Getting and Parsing the XML File
