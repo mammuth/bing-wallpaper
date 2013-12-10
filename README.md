@@ -1,9 +1,9 @@
 Bing-Wallpaper
 ==============
 
-A Python3 Script to set the daily wallpaper of www.bing.com as a Desktop Wallpaper of Linux or Windows.
+A Python3 Script to set the daily background image of www.bing.com as Desktop Wallpaper of Linux or Windows.
 
-Works fine with Ubuntu 13.10 (Unity); I guess it will work with other distributions with the Gnome environments aswell.
+Works fine with Ubuntu 13.10 (Unity and Gnome3).
 KDE is not supported yet.
 By testing it in Win7 I experienced a reset of the wallpaper after rebooting.
 
@@ -21,11 +21,12 @@ If you have any questions or ideas how to improve this, tell me! ;-)
 
 #### Additional tip:
 ###### Automate it! (Linux) 
-Make something like the following starting at boot time, to automate the process:
+Make something like the following starting at boot time, to automate the process (change the paths to your needs):
 
 ```bash
 #! /bin/bash
 DATE=`date +%d-%m-%Y`
+#only start the script if the todays picture doesn't exists
 if [ ! -a /pathTo/saveDir/bing_wp_$DATE".jpg" ]; then
 	python3 /pathTo/pythonScript/bing-wallpaper.py
 fi
