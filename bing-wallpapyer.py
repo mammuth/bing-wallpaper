@@ -15,11 +15,9 @@ idx = '0' #defines the day of the picture: 0 = today, 1 = yesterday, ... 20.
 saveDir = '/media/HDD/ProgrammingStuff/Python/BingWallpaper/' #in Windows put 2 \\ at the end
 operatingSystem = 'linux' # windows and linux (gnome)
 
-bing = 'http://www.bing.com'
 
 
-
-
+#Methods for setting a picture as Wallpaper
 def setWindowsWallpaper(picPath):
 	cmd = 'REG ADD \"HKCU\Control Panel\Desktop\" /v Wallpaper /t REG_SZ /d \"%s\" /f' % (picPath)
 	os.system(cmd)
@@ -32,7 +30,7 @@ def setGnomeWallpaper(picPath):
 
 
 #Getting and Parsing the XML File
-usock = urlopen(bing+'/HPImageArchive.aspx?format=xml&idx='+idx+'&n=1&mkt=ru-RU') #ru-RU, because they always have 1920x1200 resolution pictures
+usock = urlopen('http://www.bing.com/HPImageArchive.aspx?format=xml&idx='+idx+'&n=1&mkt=ru-RU') #ru-RU, because they always have 1920x1200 resolution pictures
 xmldoc = minidom.parse(usock)
 
 for element in xmldoc.getElementsByTagName('url'):
