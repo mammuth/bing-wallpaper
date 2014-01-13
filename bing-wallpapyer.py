@@ -34,7 +34,7 @@ usock = urlopen('http://www.bing.com/HPImageArchive.aspx?format=xml&idx='+idx+'&
 xmldoc = minidom.parse(usock)
 
 for element in xmldoc.getElementsByTagName('url'):
-	url = bing+element.firstChild.nodeValue
+	url = 'http://www.bing.com'+element.firstChild.nodeValue
   
 	#Get Current Date as fileName for the downloaded Picture
 	now = datetime.datetime.now()
