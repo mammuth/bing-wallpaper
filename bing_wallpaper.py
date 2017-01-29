@@ -1,4 +1,4 @@
-﻿#! /usr/bin/python3
+#! /usr/bin/python3
 # Author: Maximilian Muth <mail@maxi-muth.de>
 # https://github.com/mammuth/bing-wallpaper
 # Version: 1.0
