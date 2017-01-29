@@ -43,7 +43,9 @@ def set_wallpaper(pic_path):
 
 
 def download_old_wallpapers(minus_days=False):
-    """Uses download_wallpaper(set_wallpaper=False) to download the last 20 wallpapers."""
+    """Uses download_wallpaper(set_wallpaper=False) to download the last 20 wallpapers.
+    If minus_days is given an integer a specific day in the past will be downloaded.
+    """
     if minus_days:
         download_wallpaper(idx=minus_days, use_wallpaper=False)
         return
@@ -85,3 +87,4 @@ def download_wallpaper(idx=0, use_wallpaper=True):
 
 if __name__ == "__main__":
     download_wallpaper()
+    # download_old_wallpapers(minus_days=False)
