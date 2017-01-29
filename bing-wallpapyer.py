@@ -22,7 +22,7 @@ def join_path(*args):
     return os.path.normpath('/'.join(val))
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-save_dir = join_path(dir_path, 'bing-wallpaper')
+save_dir = join_path(dir_path, 'images')
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)
 
