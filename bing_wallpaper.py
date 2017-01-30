@@ -58,10 +58,14 @@ def download_wallpaper(idx=0, use_wallpaper=True):
     try:
         usock = urlopen(''.join(['http://www.bing.com/HPImageArchive.aspx?format=xml&idx=',
                                  str(idx), '&n=1&mkt=ru-RU']))  # ru-RU, because they always have 1920x1200 resolution
+    except Exception as e:
+        print('Error while downloading #', idx, e)
+        return
+    try:
         xmldoc = minidom.parse(usock)
     # This is raised when there is trouble finding the image url.
     except Exception as e:
-        print('Error while processing index #', idx, e)
+        print('Error while processing XML index #', idx, e)
         return
     # Parsing the XML File
     for element in xmldoc.getElementsByTagName('url'):
