@@ -10,7 +10,9 @@ By testing it in Win7 I experienced a reset of the wallpaper after rebooting.
 
 #### HowTo Use:
 
-Just run it: ```python3 bing_wallpaper.py
+Just run ```python3 bing_wallpaper.py```
+ 
+
 The images will be stored in an _image/_ folder.
 
 
