@@ -33,7 +33,7 @@ def set_wallpaper(pic_path):
         os.system(cmd)
         os.system('rundll32.exe user32.dll, UpdatePerUserSystemParameters')
         print('Wallpaper is set.')
-    elif sys.platform.startswith('linux2'):
+    elif sys.platform.startswith('linux'):
         os.system(''.join(['gsettings set org.gnome.desktop.background picture-uri file://', pic_path]))
         print('Wallpaper is set.')
     else:
