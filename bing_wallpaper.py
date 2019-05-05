@@ -27,19 +27,35 @@ if not os.path.exists(save_dir):
     os.makedirs(save_dir)
 
 
+def set_windows_wallpaper(pic_path):
+    print("Remove TranscodedImageCache from registry")
+    os.system('REG DELETE \"HKCU\Control Panel\Desktop\" /v TranscodedImageCache /f')
+
+    print("\nSet image in registry")
+    cmd = 'REG ADD \"HKCU\Control Panel\Desktop\" /v Wallpaper /t REG_SZ /d \"%s\" /f' % pic_path
+    os.system(cmd)
+
+    print("\nClean theme cached image folders")
+    os.system("del /F /Q %AppData%\Microsoft\Windows\Themes\CachedFiles")
+    os.system("del /F /Q %AppData%\Microsoft\Windows\Themes\TranscodedWallpaper")
+
+    # refresh user params
+    os.system('rundll32.exe user32.dll, UpdatePerUserSystemParameters')
+    print('Wallpaper is set.')
+
+
+def set_linux_wallpaper(pic_path):
+    os.system(''.join(['gsettings set org.gnome.desktop.background picture-uri file://', pic_path]))
+    print('Wallpaper is set.')
+
+
 def set_wallpaper(pic_path):
     if sys.platform.startswith('win32'):
-        cmd = 'REG ADD \"HKCU\Control Panel\Desktop\" /v Wallpaper /t REG_SZ /d \"%s\" /f' %pic_path
-        os.system(cmd)
-        os.system('rundll32.exe user32.dll, UpdatePerUserSystemParameters')
-        print('Wallpaper is set.')
+        set_windows_wallpaper(pic_path)
     elif sys.platform.startswith('linux'):
-        os.system(''.join(['gsettings set org.gnome.desktop.background picture-uri file://', pic_path]))
-        print('Wallpaper is set.')
+        set_linux_wallpaper(pic_path)
     else:
         print('OS not supported.')
-        return
-    return
 
 
 def download_old_wallpapers(minus_days=False):
