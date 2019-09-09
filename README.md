@@ -1,6 +1,8 @@
 Bing-Wallpaper
 ==============
 
+<a href="https://www.buymeacoffee.com/mammuth" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 A Python3 script to set the daily background image of www.bing.com as desktop allpaper on Linux or Windows.
 
 Works fine with Ubuntu 13.10 (Unity and Gnome3).
