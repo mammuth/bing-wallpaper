@@ -10,6 +10,7 @@ from urllib.request import urlopen, urlretrieve
 from xml.dom import minidom
 import os
 import sys
+import ctypes
 
 
 def join_path(*args):
@@ -28,20 +29,21 @@ if not os.path.exists(save_dir):
 
 
 def set_windows_wallpaper(pic_path):
-    print("Remove TranscodedImageCache from registry")
-    os.system('REG DELETE \"HKCU\Control Panel\Desktop\" /v TranscodedImageCache /f')
-
-    print("\nSet image in registry")
-    cmd = 'REG ADD \"HKCU\Control Panel\Desktop\" /v Wallpaper /t REG_SZ /d \"%s\" /f' % pic_path
-    os.system(cmd)
-
-    print("\nClean theme cached image folders")
-    os.system("del /F /Q %AppData%\Microsoft\Windows\Themes\CachedFiles")
-    os.system("del /F /Q %AppData%\Microsoft\Windows\Themes\TranscodedWallpaper")
-
-    # refresh user params
-    os.system('rundll32.exe user32.dll, UpdatePerUserSystemParameters')
-    print('Wallpaper is set.')
+    """
+    WinAPI wallpaper set
+    Documentation is here
+    https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-systemparametersinfow
+    """
+    print("Setting {} as a wallpaper".format(pic_path))
+    uiAction = 20  # SPI_SETDESKWALLPAPER = 0x0014 or 20 in decimal
+    uiParam = 0
+    pvParam = pic_path
+    fWinIni = 0
+    success = ctypes.windll.user32.SystemParametersInfoW(uiAction, uiParam, pvParam, fWinIni)
+    if success:
+        print('Wallpaper is set.')
+    else:
+        print("Something went wrong. Wallpaper wasn't set")
 
 
 def set_linux_wallpaper(pic_path):
